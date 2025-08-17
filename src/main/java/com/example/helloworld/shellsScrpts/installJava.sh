@@ -5,10 +5,10 @@
 set -e  # Exit immediately if a command exits with a non-zero status
 
 echo "Updating package lists..."
-sudo apt update
+apt update
 
 echo "Installing OpenJDK 17..."
-sudo apt install -y openjdk-17-jdk
+apt install -y openjdk-17-jdk
 
 echo "Checking installed Java version..."
 java -version
