@@ -20,13 +20,6 @@ jobs:
       - name: Install JDK 17
         run: chmod +x ./src/main/java/com/example/helloworld/shellsScrpts/installJava.sh
 
-      - name: Install Maven
-        run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/installMaven.sh
-
-      # Step 3: Run Maven clean and package
-      - name: Build with Maven
-        run: mvn --version
-
       # Step 4: Build Docker image
       - name: Build Docker image
         run: docker build -t springboot-docker-app .
@@ -35,6 +28,9 @@ jobs:
       - name: Run Docker image
         run: docker run -p 8080:8080 springboot-docker-app
 
-      # Step 6: Check status
-      - name: Check status
-        run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/checkResponseCode.sh
+  Test:
+    runs-on: ubuntu-latest
+      steps:
+        # Step 6: Check status
+        - name: Check status
+          run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/checkResponseCode.sh
