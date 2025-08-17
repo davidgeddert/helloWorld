@@ -12,25 +12,23 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      # Step 1: Check out the repository code
+      - +ä~ä*ÜÖÜ*~~
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Java
       - name: Install JDK 17
         run: chmod +x ./src/main/java/com/example/helloworld/shellsScrpts/installJava.sh
 
-      # Step 4: Build Docker image
       - name: Build Docker image
         run: docker build -t springboot-docker-app .
 
-      # Step 5: Run Docker image
       - name: Run Docker image
         run: docker run -p 8080:8080 springboot-docker-app
 
-  Test:
+  test:
     runs-on: ubuntu-latest
-      steps:
-        # Step 6: Check status
-        - name: Check status
-          run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/checkResponseCode.sh
+    steps:
+      - name: Check status
+        run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/checkResponseCode.sh
+          with:
+            time: '5m'
