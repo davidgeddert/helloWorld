@@ -12,22 +12,23 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - +ä~ä*ÜÖÜ*~~
+      #Clones the repository
       - name: Checkout code
         uses: actions/checkout@v3
-
+      #Runs a shell script to installs Java 17
       - name: Install JDK 17
         run: chmod +x ./src/main/java/com/example/helloworld/shellsScrpts/installJava.sh
-
+      #Builds the docker file
       - name: Build Docker image
         run: docker build -t springboot-docker-app .
-
+      #Runs the Image
       - name: Run Docker image
         run: docker run -p 8080:8080 springboot-docker-app
 
   test:
     runs-on: ubuntu-latest
     steps:
+      #Waits 5 minutes and runs shell script to test status of the application
       - name: Check status
         run: chmod +x src/main/java/com/example/helloworld/shellsScrpts/checkResponseCode.sh
           with:
