@@ -4,6 +4,8 @@
 echo "Updating package list..."
 sudo apt update
 
+ls -R
+
 # Install Maven
 echo "Installing Maven..."
 sudo apt install -y maven
